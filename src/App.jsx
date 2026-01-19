@@ -3,12 +3,17 @@ import Home from "./pages/Home.jsx";
 import Products from './pages/Products.jsx';
 import ProductDetails from './pages/ProductDetails.jsx';
 import Cart from "./pages/Cart";
+import Navbar from "./components/Navbar";
+import { useContext } from "react" ;
+import { AppContext } from "./context/AppContext";
+import { useLocation } from 'react-router-dom';
 
 const App = () => {
+  const {isSeller}=useContext(AppContext);
+  const isSellerPath = useLocation().pathname.includes("seller");
   return (
     <div>
-      <h1 className="text-green-800">GreenMart</h1>
-
+      {isSellerPath ? null : <Navbar />}
       <div>
         <Routes>
           <Route path="/" element={<Home />}/>
