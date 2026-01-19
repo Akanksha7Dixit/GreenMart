@@ -3,8 +3,9 @@ import React from 'react'
 const Products = () => {
   return (
     <div>
-      Products
+      <h1>Products Page</h1>
     </div>
   )
 }
-export default Products;
+
+export default Products
