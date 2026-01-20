@@ -7,19 +7,25 @@ import Navbar from "./components/Navbar";
 import { useContext } from "react" ;
 import { AppContext } from "./context/AppContext";
 import { useLocation } from 'react-router-dom';
+import MyOrders from './pages/MyOrders.jsx';
+import Auth from './models/Auth.jsx';
+
 
 const App = () => {
-  const {isSeller}=useContext(AppContext);
+  const {isSeller,showUserLogin}=useContext(AppContext);
   const isSellerPath = useLocation().pathname.includes("seller");
   return (
     <div>
-      {isSellerPath ? null : <Navbar />}
+      {isSellerPath ? null : <Navbar/>}
+      {showUserLogin ? <Auth/> : null }
+
       <div>
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<Products />}/>
           <Route path="/product-details" element={<ProductDetails />}/>
           <Route path="/cart" element={<Cart />}/>
+          <Route path="/my-orders" element={<MyOrders />}/>
         </Routes>
       </div>
     </div>
