@@ -15,11 +15,12 @@ const App = () => {
   const {isSeller,showUserLogin}=useContext(AppContext);
   const isSellerPath = useLocation().pathname.includes("seller");
   return (
-    <div>
+    <div className="text-default min-h-screen">
       {isSellerPath ? null : <Navbar/>}
-      {showUserLogin ? <Auth/> : null }
+      {showUserLogin ? <Auth/> : null } 
+      
 
-      <div>
+      <div className="px-4 md:px-16 lg:px-24 xl:px-32">
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<Products />}/>
