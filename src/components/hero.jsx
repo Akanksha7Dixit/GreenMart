@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { assets } from '../assets/assets.js';
+import { Link } from 'react-router-dom';
+
 
 const hero = () => {
   return (
@@ -12,6 +14,18 @@ const hero = () => {
                             <h1 className="text-3xl md:text-4xl font-bold text-center md:text-left max-w-72 md:max-w-80 leading-tight lg:leading-15">
                                 Freshness You Can Trust,Savings You will Love!
                             </h1>
+                            <div className="flex items-center mt-6 font-medium gap-6">
+                              <Link to="/products" className="flex group items-center gap-2 px-7 rounded text-white py-3 bg-orange-600 bg-primary cursor-pointer">
+                              Shop Now
+                              <img src={assets.white_arrow_icon} alt="" className="md:hidden transition group-focus:translate-x-1"/>
+                              </Link>
+
+                               <Link to="/products" className="hidden md:flex group items-center gap-2 px-7 rounded text-white py-3 bg-orange-600 bg-primary cursor-pointer">
+                               Explore Deals
+                              <img src={assets.white_arrow_icon} alt="" className="md:hidden transition group-focus:translate-x-1"/>
+                              </Link>
+
+                            </div>
         </div>
     </div>
   );

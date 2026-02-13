@@ -9,7 +9,7 @@ import { AppContext } from "./context/AppContext";
 import { useLocation } from 'react-router-dom';
 import MyOrders from './pages/MyOrders.jsx';
 import Auth from './models/Auth.jsx';
-
+import ProductCategory from "./pages/ProductCategory";
 
 const App = () => {
   const {isSeller,showUserLogin}=useContext(AppContext);
@@ -24,7 +24,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<Products />}/>
-          <Route path="/product-details" element={<ProductDetails />}/>
+          <Route path="/product/:category/:id" element={<ProductDetails />}/>
+          <Route path="/products/:category" element={<ProductCategory/>} />
           <Route path="/cart" element={<Cart />}/>
           <Route path="/my-orders" element={<MyOrders />}/>
         </Routes>

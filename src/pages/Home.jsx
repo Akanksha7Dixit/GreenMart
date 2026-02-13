@@ -1,10 +1,12 @@
-import React from 'react'
 import Hero from "../components/hero.jsx";
-
+import Category from "../components/Category";
+import BestSeller from "../components/BestSeller.jsx";
 const Home = () => {
   return (
-    <div>
+    <div className="mt-10">
       <Hero />
+      <Category />
+      <BestSeller/>
     </div>
   )
 }
