@@ -2,7 +2,6 @@ import Hero from "../components/hero.jsx";
 import Category from "../components/Category";
 import BestSeller from "../components/BestSeller.jsx";
 import NewsLetter from "../components/NewsLetter.jsx";
-import Footer from "../components/Footer.jsx";
 
 const Home = () => {
   return (
@@ -11,8 +10,6 @@ const Home = () => {
       <Category />
       <BestSeller/>
       <NewsLetter/>
-      <br></br>
-      <Footer/>
     </div>
   )
 }

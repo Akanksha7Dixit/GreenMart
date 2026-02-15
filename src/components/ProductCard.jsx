@@ -11,14 +11,13 @@
 // export default ProductCard
 
 
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { useAppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
 
 const ProductCard = ({ product }) => {
 //   const { navigate } = useContext(AppContext);
 
-  const { addToCart, removeFromCart, cartItems, navigate } = useContext(AppContext);
+  const { addToCart, removeFromCart, cartItems, navigate } = useAppContext();
   const imageSrc = product?.image && product.image[0]
     ? (typeof product.image[0] === "string" && (product.image[0].startsWith("http") || product.image[0].startsWith("/") || product.image[0].startsWith("data:"))
         ? product.image[0]
@@ -62,9 +61,9 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="flex items-end justify-between mt-3">
             <p className="md:text-xl text-base font-medium text-indigo-500">
-              ${product.offerPrice}{" "}
+              Rs.{product.offerPrice}{" "}
               <span className="text-gray-500/60 md:text-sm text-xs line-through">
-                ${product.price}
+                Rs.{product.price}
               </span>
             </p>
             <div

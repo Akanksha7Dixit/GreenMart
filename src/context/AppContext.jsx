@@ -1,10 +1,34 @@
-import {createContext,useState} from "react";
+import {createContext,useState,useContext} from "react";
 import {useNavigate } from "react-router-dom";
 import { dummyProducts } from "../assets/assets";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 
+// Simple axios-like wrapper using fetch
+const axios = {
+  get: async (url) => {
+    const response = await fetch(url);
+    return { data: await response.json() };
+  },
+  post: async (url, data) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    return { data: await response.json() };
+  },
+};
+
 export const AppContext = createContext(null);
+
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error("useAppContext must be used within AppContextProvider");
+  }
+  return context;
+};
 
 const AppContextProvider = ({children})=>{
     const navigate=useNavigate();
@@ -14,7 +38,7 @@ const AppContextProvider = ({children})=>{
     const [products,setProducts]=useState([]);
 
     const [cartItems,setCartItems]=useState([]);
-
+    const [searchQuery,setSearchQuery]=useState("");
 
     const fetchProducts=async()=>{
         setProducts(dummyProducts);
@@ -36,7 +60,7 @@ const AppContextProvider = ({children})=>{
     }
 
     //update cart item quantity
-    const updateCartItemQuantity=(itemId,quantity)=>{
+    const updateCartItem=(itemId,quantity)=>{
         let cartData=structuredClone(cartItems);
 
         if (quantity > 0) {
@@ -98,8 +122,12 @@ const AppContextProvider = ({children})=>{
         cartCount,
         totalCartAmount,
         removeFromCart,
-        updateCartItemQuantity,
+        updateCartItem,
         cartItems,
+        setCartItems,
+        searchQuery,
+        setSearchQuery,
+        axios
     };
     return (
         <AppContext.Provider value={value}>

@@ -1,12 +1,12 @@
-import {useState , useContext} from "react";
-import { AppContext } from "../context/AppContext";
+import {useState } from "react";
+import { useAppContext } from "../context/AppContext";
 
 const Auth = () => {
     const [state, setState] = useState("login");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const {setShowUserLogin,setUser}=useContext(AppContext);
+    const {setShowUserLogin,setUser}=useAppContext();
     
     const submitHandler =async(e)=>{
         e.preventDefault();
