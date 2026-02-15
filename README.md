@@ -7,9 +7,9 @@ Features implemented so far:
 - Home, Products, Cart pages created
 - Context API setup
 - Basic UI structure
+- Add to cart functionality
 
 Features still in progress:
 - Product listing from API
-- Add to cart functionality
 - Authentication
 - Checkout flow
