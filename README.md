@@ -8,8 +8,9 @@ Features implemented so far:
 - Context API setup
 - Basic UI structure
 - Add to cart functionality
+- Product listing from API
+- Database configuration to push and fetch data
 
 Features still in progress:
-- Product listing from API
 - Authentication
 - Checkout flow
