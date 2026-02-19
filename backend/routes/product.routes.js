@@ -6,7 +6,7 @@ import {
   changeStock,
   getProductById,
   getProducts,
-} from "../controller/product.controller.js";
+} from "../controllers/product.controller.js";
 import { upload } from "../config/multer.js";
 const router = express.Router();
 

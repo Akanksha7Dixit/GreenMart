@@ -3,7 +3,7 @@ import {
   checkAuth,
   sellerLogin,
   sellerLogout,
-} from "../controller/seller.controller.js";
+} from "../controllers/seller.controller.js";
 import { authSeller } from "../middlewares/authSeller.js";
 const router = express.Router();
 
