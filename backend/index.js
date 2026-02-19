@@ -12,11 +12,12 @@ import userRoutes from "./routes/user.routes.js";
 // import addressRoutes from "./routes/address.routes.js";
 // import orderRoutes from "./routes/order.routes.js";
 
-// import { connectCloudinary } from "./config/cloudinary.js";
+import { connectCloudinary } from "./config/cloudinary.js";
 
 const app = express();
 
 // await connectCloudinary();
+connectCloudinary();
 connectDB();
 // allow multiple origins
 const allowedOrigins = ["http://localhost:5173"];
